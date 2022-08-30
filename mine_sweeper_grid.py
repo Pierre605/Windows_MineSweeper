@@ -118,9 +118,26 @@ def Mine_sweeper(n,nb):
 
 
 def run_game():
-	input_grid_size = int(input("Entrez la longueur de la grille voulue : "))
-	input_nb = int(input("Entrez le nombre de bombes dans la grille : "))
-	Mine_sweeper(input_grid_size, input_nb)
+	
+	while True:
+		try:
+			input_grid_size = int(input("Entrez la longueur de la grille voulue (un nombre entre 1 et 50) : "))
+			if input_grid_size >= 1 and input_grid_size <= 70:
+				break				
+			else:
+				continue
+		except Exception:
+			print("⚠️ Tapez un nombre compris entre 1 et 50")
+
+	while True:
+		try:
+			input_nb = int(input("Entrez le nombre de bombes dans la grille : "))
+			if input_nb >= 0 and input_nb <= (input_grid_size**2):
+				return Mine_sweeper(input_grid_size, input_nb)
+			else:
+				continue
+		except ValueError:
+			print("⚠️ Tapez un nombre compris entre 0 et le carré de la longueur de la grille que vous avez choisi")
 
 
 run_game()
