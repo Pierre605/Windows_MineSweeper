@@ -11,19 +11,26 @@ def make_empty_ms_grid(n):
 	return (empty_grid)
 
 
-def put_bombs(nb, empty_grid):
-	L = []
-	L2 = []
-	n = len(empty_grid)
+def put_bombs(nb, empty_grid):	
+	bombs = 0
+	while bombs < nb:
+		bombs = 0
+		L = []
+		L2 = []
+		n = len(empty_grid)
 
-	for i in range(nb):
-		r = random.randint(0, n-1)
-		r2 = random.randint(0, n-1)
-		L.append(r)
-		L2.append(r2)
-	
-	for x in range(nb):
-		empty_grid[L[x]][L2[x]] = 9
+		for y in range(n):
+			for x in range(n):
+				if empty_grid[y][x] == 9:
+					bombs += 1
+
+		for i in range(nb):
+			r = random.randint(0, n-1)
+			r2 = random.randint(0, n-1)
+			L.append(r)
+			L2.append(r2)
+		for x in range(nb - bombs):
+			empty_grid[L[x]][L2[x]] = 9
 	
 	return (empty_grid)
 
