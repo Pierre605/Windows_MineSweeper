@@ -1,5 +1,5 @@
 import random
-from colorist import Color, BrightColor, green, yellow, red, blue, black, cyan, magenta, white
+from colorist import Color, Effect, BrightColor, green, yellow, red, blue, black, cyan, magenta, white
 
 empty_grid = []
 
@@ -97,7 +97,7 @@ def cell_numbers(empty_grid):
 		print('')
 		for x in range(n):
 			if empty_grid[y][x] == 'X':
-				print(f"{BrightColor.BLACK}{empty_grid[y][x]}{BrightColor.OFF}", end= ' ')
+				print(f"{BrightColor.BLACK}{Effect.BLINK}{empty_grid[y][x]}{Effect.BLINK_OFF}{BrightColor.OFF}", end= ' ')
 			elif empty_grid[y][x] == "1":
 				print(f"{Color.CYAN}{empty_grid[y][x]}{Color.OFF}", end= ' ')
 			elif empty_grid[y][x] == "2":
