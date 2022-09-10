@@ -137,13 +137,14 @@ def run_game():
 
 	while True:
 		try:
-			input_grid_size = int(input("Entrez la longueur de la grille voulue (un nombre entre 1 et 50) : "))
-			if input_grid_size >= 1 and input_grid_size <= 70:
+			input_grid_size = int(input("Entrez la longueur de la grille voulue (un nombre entre 1 et 75) : "))
+			if input_grid_size >= 1 and input_grid_size <= 75:
 				break				
 			else:
+				print("⚠️ Tapez un nombre compris entre 1 et 75")
 				continue
-		except Exception:
-			print("⚠️ Tapez un nombre compris entre 1 et 50")
+		except ValueError:
+			print("⚠️ Tapez un nombre")
 
 	while True:
 		try:
@@ -151,9 +152,10 @@ def run_game():
 			if input_nb >= 0 and input_nb <= (input_grid_size**2):
 				return Mine_sweeper(input_grid_size, input_nb)
 			else:
+				print("⚠️ Tapez un nombre compris entre 0 et le carré de la longueur de la grille que vous avez choisi")
 				continue
 		except ValueError:
-			print("⚠️ Tapez un nombre compris entre 0 et le carré de la longueur de la grille que vous avez choisi")
+			print("⚠️ Tapez un nombre")
 
 
 print(run_game())
