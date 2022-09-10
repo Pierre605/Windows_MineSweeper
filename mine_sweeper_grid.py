@@ -1,9 +1,11 @@
 import random
 from colorist import Color, Effect, BrightColor, green, yellow, red, blue, black, cyan, magenta, white
+from pics import title
 
-empty_grid = []
+print(title)
 
 def make_empty_ms_grid(n):
+	empty_grid = []
 	for y in range(n):
 		empty_grid.append([])
 		for x in range(n):
@@ -122,10 +124,17 @@ def Mine_sweeper(n,nb):
 	grid = make_empty_ms_grid(n)
 	put_grid = put_bombs(nb, grid)
 	cell_numbers(put_grid)
+	print('\n')
+	input_play_again = input("Une autre grille ? 'o' oui, 'n' non : ")
+	if input_play_again == 'o':
+		return run_game()
+	else:
+		return '\nBYE !\n'
 
 
 def run_game():
-	
+	print('\n')
+
 	while True:
 		try:
 			input_grid_size = int(input("Entrez la longueur de la grille voulue (un nombre entre 1 et 50) : "))
@@ -147,4 +156,4 @@ def run_game():
 			print("⚠️ Tapez un nombre compris entre 0 et le carré de la longueur de la grille que vous avez choisi")
 
 
-run_game()
+print(run_game())
